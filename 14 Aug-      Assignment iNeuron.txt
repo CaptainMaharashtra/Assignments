@@ -1,0 +1,177 @@
+import java.util.Arrays;
+
+public class AssignmentString14Aug 
+{
+
+	public void reverseString() // 1. ("WAP to reverse a String. Input: “iNeuron”)
+	{
+		StringBuffer input = new StringBuffer("iNeuron");
+		System.out.println(input.reverse());
+	}
+	 	
+	public void ReverseWithPreservePosition() // (2. WAP to reverse a sentence while preserving the position.)
+	{
+		String str1 =("Think Twice");
+		String str2 ="";
+		//String a[] =str1.split(" ");
+		for(int i= str1.length()-1;i>=0; i--)
+		{
+			str2= str2 + str1.charAt(i);
+		}
+		System.out.println(str2);
+		
+	}
+	
+	public void Anagram() // (3.WAP to check if the String is Anagram or not.)
+	{
+		
+	String s1 = "City";
+	String s2 = "Ticy";
+	
+	if(s1.length() == s2.length())
+	{
+		s1= s1.toLowerCase();
+		s2= s2.toLowerCase();
+		
+		char [] a1 = s1.toCharArray();
+		char [] a2 = s2.toCharArray();
+		Arrays.sort(a1);
+		Arrays.sort(a2);
+		
+		boolean result= Arrays.equals(a1, a2);
+		if(result)
+		{
+			System.out.println(" " + s1 +" and " + s2 + " are Anagram");
+		}
+		else
+			System.out.println("" + s1 +" and " + s2 +" are not Anagram");	
+	}
+	else
+		System.out.println(" "+ s1 +"and" + s2 + " are not Anagram");
+	
+	}
+	
+	public void Panagram() //(4. WAP to check if the String is a Pangram or not.)
+	{
+		int count[] = new int[26];
+		boolean flag = true;
+		String str1 = "abcdefghijklmnopqrstuvwxiyz";
+		char ch;
+		for(int i=0; i<str1.length() ;i++)
+		{
+			ch = str1.charAt(i);
+			
+			if(ch>='a' && ch<='z')
+			{
+				count[ch-'a']++;
+			}else if (ch>='A' && ch<='Z')
+			{
+				count[ch-'A']++;
+			}
+		}
+		for(int i=0; i<count.length;i++)
+		{
+			if(count[i] ==0) {
+				flag = false;
+				break;
+			}
+		}
+		if(flag)
+		{
+			System.out.println(" It is Panagram");
+		}
+		else
+			System.out.println(" It is Not a panagram");
+		
+		
+		
+		
+	}
+
+	public void Repeataion()//( 5.WAP to print repeatedly occurring characters in the given String.)
+	{	
+		// Didn't get the logic behind it.
+	}
+	
+	public void ToSort() // (6.WAP to sort a String Alphabetically.)
+	{
+		String s1 = "xxccvvvnnnmmmaaahhhhdddbbb";
+		char arr[] = s1.toCharArray();	
+     	char just;
+     	int i=0 ;
+               while(i<arr.length) {
+    	           int  j=i+1;
+    	            while(j<arr.length){
+    		           if(arr[j] < arr[i]) {
+    		        	   just = arr[i];
+    	                    arr[i] = arr[j];
+    	                    arr[j] = just;
+    			 
+    		              }j+=1;
+    		           
+    	            }i+=1;
+               
+             }System.out.println(arr);
+	}
+	
+	public void VowelsCount()  // ( 7.WAP to count the number of Vowels and Consonants of a String value.)
+	{
+		String s1= "Kesariya tera ishq hei piya rang jau...";
+		int count = 0;
+		
+		for( int i =0; i < s1.length(); i++)
+		{
+		   char ch = s1.charAt(i);
+		   
+		   if( ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) 
+		    count ++ ;   
+		}
+		System.out.println("No. of Vowels are " + count);
+	}
+	
+	
+	public void SpecialChar()//( 8.WAP to count number of special characters.)
+	{
+		String s1 = "porsche@martini*^78";
+		int spl =0 , alp =0, numb=0;
+		for(int i =0; i<s1.length(); i++)
+		{
+			char ch = s1.charAt(i);
+			if( ch>= 'a' && ch<='z')
+			{
+			alp++;
+			}else if ( ch>= '0' && ch<='9')
+			{
+				numb++;	
+			}
+			else 
+				spl++;		
+		}
+		System.out.println("No. of Special Characters are " +spl);
+			
+	}
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		AssignmentString14Aug A = new AssignmentString14Aug();
+		A.reverseString(); //1. Output: “norueNi”  
+		
+		A.ReverseWithPreservePosition();  //2. Output "reverse"
+		
+		A.Anagram(); //3. output "Anagram"
+		
+		A.Panagram(); //4. output "Panagram"
+		
+		// Qn. 5 is yet to complete
+		
+		A.ToSort(); //6. Output "ToSort"
+		
+		A.VowelsCount(); //7. output " VowelsCount"
+		
+		A.SpecialChar(); //8. output "special Char"
+		
+	}
+
+}
